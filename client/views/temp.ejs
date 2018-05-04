@@ -1,0 +1,9 @@
+<% const messages = getMessages()%>
+    <% for(var m in messages){ %>
+    <p><%= m %></p>
+    <% } %>
+    <% if(messages.registration){ %>
+      <%= messages.registration %>
+      <% for(message of messages){ %>
+    <p><%= message %></p>
+    <% } } %>

@@ -1,0 +1,41 @@
+marquee {
+  font-size: 4em;
+  color: hotpink;
+  text-shadow: 0px 0px 8px yellow;
+  overflow-y: visible;
+}
+
+h1 {
+  border-radius: 20px;
+  padding: 20px;
+  background-color: aqua;
+  background-color: palegreen;
+  box-shadow: 5px 10px 10px orangered;
+  margin-bottom: 20px;
+}
+
+form {
+  background-color: palegreen;
+  border: 2px solid grey;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 5px 10px 10px orangered;
+}
+
+form .errorfield {
+  border-color: crimson;
+}
+
+button {
+  background-color: palegreen;
+  box-shadow: 5px 10px 10px orangered;
+}
+
+body {
+  background-color: olivedrab;
+}
+
+.error {
+  color: crimson;
+}
+/*# sourceMappingURL=styles.css.map */

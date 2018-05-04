@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Index</title>
+  <%- include('header') %>
+  <script>
+    $(document).ready(function(){
+      $('#regform').submit(function(){
+        if($('#password').val() !== $('#conpassword').val() || $('#password').val() == ""){
+          $('#conpassword').addClass('errorfield');
+          $('#conpassword').prev().show();
+          return false;
+        }
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <marquee>Happy birthday Eli!</marquee>
+    <h1>Login and reg</h1>
+  
+
+    <% if(messages.malicious){ %>
+      <p class="error"><%= messages.malicious %> </p>
+    <% } %>
+    
+    
+    <div class="row">
+      <form id="regform" action="/register" method="post" class="col-md-offset-1 col-md-4 col-sm-12">
+        <div class="form-group">
+          
+          <label for="email">Email:</label>
+          <% if(messages.email){ %>
+            <% for (var x of messages.email){ %>
+              <p class="error"><%= x %></p>
+          <%} }%>
+          <input type="text" name="email" id="email" 
+            class="form-control <% if(messages.email){%>errorfield<%}%>" 
+            <% if(messages.oldemail){ %> value="<%=messages.oldemail%>"<% } %> >
+        </div>
+        <div class="form-group">
+          <label for="first_name">First name:</label>
+          <% if(messages.first_name){ %>
+            <% for (var x of messages.first_name){ %>
+              <p class="error"><%= x %></p>
+          <% }} %>
+          <input type="text" name="first_name" id="first_name" 
+            class="form-control <% if(messages.first_name){%>errorfield<%}%>"
+            <% if(messages.oldfirst_name){ %> value="<%=messages.oldfirst_name%>"<% } %> >
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last name:</label>
+          <% if(messages.last_name){ %>
+            <% for (var x of messages.last_name){ %>
+              <p class="error"><%= x %></p>
+          <% }} %>
+          <input type="text" name="last_name" id="last_name" 
+            class="form-control <% if(messages.last_name){%>errorfield<%}%>"
+            <% if(messages.oldlast_name){ %> value="<%=messages.oldlast_name%>"<% } %> >
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <% if(messages.password){ %>
+            <% for (var x of messages.password){ %>
+              <p class="error"><%= x %></p>
+          <% }} %>
+          <input type="password" name="password" id="password" 
+            class="form-control <% if(messages.password){%>errorfield<%}%>">
+        </div>
+        <div class="form-group">
+          <label for="conpassword">Confirm password:</label>
+          <p id="conpmsg" hidden class="error">Passwords must match</p>
+          <input type="password" name="conpassword" id="conpassword" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="bday">Birthday:</label>
+          <% if(messages.bday){ %>
+            <% for (var x of messages.bday){ %>
+              <p class="error"><%= x %></p>
+          <% }} %>
+          <input type="date" name="bday" id="bday" 
+            class="form-control <% if(messages.bday){%>errorfield<%}%>"
+            <% if(messages.oldbday){ %> value="<%=messages.oldbday%>"<% } %> >
+        </div>
+        <button class="btn" type="submit">Register</button>
+      </form>
+
+      <form action="/login" method="post" class="col-md-offset-2 col-md-4 col-sm-12">
+        <div class="form-group">
+          <label for="emaillog">Email:</label>
+          <input type="text" name="email" id="emaillog" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="passwordlog">Password:</label>
+          <input type="password" name="password" id="passwordlog" class="form-control">
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </div>
+    
+  </div>
+</body>
