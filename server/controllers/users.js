@@ -48,6 +48,10 @@ module.exports = {
 
           res.render('success', { name: data.first_name })
         })
+        .catch(err => {
+          req.flash("maliciious", "We're sorry, we had trouble logging you in right now")
+          res.redirect('/')
+        })
     }
     else {
       req.flash("malicious", "You must be logged in to view the requested page")
